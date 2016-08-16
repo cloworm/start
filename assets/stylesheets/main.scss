@@ -1,5 +1,4 @@
 body {
-  overflow: hidden;
 }
 
 #details {
@@ -28,9 +27,7 @@ body {
   left: 3%;
 }
 
-.nav-icons {
-  padding-right: 10%;
-}
+
 
 #days {
   padding: 0;
@@ -74,4 +71,8 @@ ul li {
 
 #day-holder-holder {
   position: relative;
+}
+
+#form {
+  height: 300px;
 }
