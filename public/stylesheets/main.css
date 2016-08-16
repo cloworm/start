@@ -44,11 +44,5 @@ ul li {
   margin-bottom: 10px;
   padding-left: 3%; }
 
-#day-holder {
-  position: absolute; }
-
-#day-holder-holder {
-  position: relative; }
-
 #form {
   height: 300px; }
