@@ -1,13 +1,133 @@
 {% extends 'layout.html' %}
-
 {% block content %}
 
-  <h3>Hotels</h3>
-  <ul>
-  {% for hotels in hotel %}
-    <li>{{ hotels.name }}</li>
-    <li>{{ hotels.num_stars }}</li>
-  {% endfor %}
-  </ul>
+  <div class="row">
+      <div class="col s12">
+        <div class="card-panel  teal lighten-3">
+          <span>
+            <div id="map"></div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% endblock %}
+  <!-- Trip Option Form -->
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card-panel  teal lighten-3 clearfix">
+        <span>
+          <form>
+            <div class="form-group">
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Choose your hotel</option>
+                  {% for hotels in hotel %}
+                      <option value='{{ hotels.id }}'>{{ hotels.name }}</option>
+                  {% endfor %}
+                </select>
+                <label class="white-text">Hotel</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled selected>Choose your restaurants</option>
+                  {% for restaurants in restaurant %}
+                      <option value='{{ restaurants.id }}'>{{ restaurants.name }}</option>
+                  {% endfor %}
+                </select>
+                <label class="white-text">Restaurant</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled selected>Choose your activities</option>
+                  {% for activitys in activity %}
+                      <option value='{{ activitys.id }}'>{{ activitys.name }}</option>
+                  {% endfor %}
+                </select>
+                <label class="white-text">Activity</label>
+              </div>
+            </div>
+            <a href="#!" class="btn waves-effect waves-red submit-btn">Submit</a>
+          </form>
+
+        </span>
+      </div>
+    </div>
+
+
+  <!-- Day Details -->
+  <div class="col s12 m6">
+    <div class="card-panel teal lighten-3" id="days">
+      <span>
+        <div class="row" id="day-holder-holder">
+          <div class="col s12" id="day-holder">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#day1" class="active">Day 1</a></li>
+              <li class="tab col s3"><a href="#day2">Day 2</a></li>
+              <li class="tab col s3"><a href="#day3">Day 3</a></li>
+            </ul>
+          </div>
+          <div id="day1" class="col s12">
+            <p class="day-category white-text"> My Hotel</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a> Hotel Mulberry<li>
+            </ul>
+            <p class="day-category white-text">My Restaurants</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Tamarind<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Pylos<li>
+            </ul>
+            <p class="day-category white-text">My Activities</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Apple Store<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Strand Bookstore<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Ground Zero<li>
+            </ul>
+          </div>
+          <div id="day2" class="col s12">
+            <p class="day-category white-text"> My Hotel</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Hotel Mulberry<li>
+            </ul>
+            <p class="day-category white-text">My Restaurants</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Tamarind<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Pylos<li>
+            </ul>
+            <p class="day-category white-text">My Activities</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Apple Store<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Strand Bookstore<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Ground Zero<li>
+            </ul>
+          </div>
+
+          <div id="day3" class="col s12">
+            <p class="day-category white-text"> My Hotel</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Hotel Mulberry<li>
+            </ul>
+            <p class="day-category white-text">My Restaurants</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Tamarind<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Pylos<li>
+            </ul>
+            <p class="day-category white-text">My Activities</p>
+            <ul>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Apple Store<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Strand Bookstore<li>
+              <li><a class="btn-floating teal"><i class="material-icons">close</i></a>Ground Zero<li>
+            </ul>
+          </div>
+
+        </div>
+      </span>
+    </div>
+  </div>
+  {% endblock %}

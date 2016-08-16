@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express.Router();
 var Hotel = require('../models/hotel');
-var Activity = require('../models/hotel');
+var Activity = require('../models/activity');
 var Restaurant = require('../models/restaurant');
 var Place = require('../models/place');
 var Promise = require('bluebird');
@@ -18,14 +18,13 @@ app.get('/', function (req, res, next) {
 
   Promise.all(promiseArr)
   .then(function(thing) {
-    // console.log(thing[0]);
+    console.log(thing[1]);
     outerScopeContainer.hotel = thing[0];
     outerScopeContainer.activity = thing[1];
     outerScopeContainer.restaurant = thing[2];
     outerScopeContainer.place = thing[3];
   })
   .then(function() {
-      // console.log(outerScopeContainer.hotel);
     res.render('index', {
       hotel: outerScopeContainer.hotel,
       activity: outerScopeContainer.activity,
