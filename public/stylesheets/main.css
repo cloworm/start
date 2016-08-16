@@ -5,3 +5,8 @@ body {
   position: absolute;
   bottom: 5%;
   width: 50%; }
+
+.side-nav li {
+  margin: 0 auto;
+  width: 100%;
+}
