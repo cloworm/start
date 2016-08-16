@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+  <h3>Hotels</h3>
+  <ul>
+  {% for hotels in hotel %}
+    <li>{{ hotels.name }}</li>
+    <li>{{ hotels.num_stars }}</li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

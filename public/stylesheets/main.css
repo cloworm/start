@@ -1,0 +1,7 @@
+body {
+  background: #cccccc; }
+
+#details {
+  position: absolute;
+  bottom: 5%;
+  width: 50%; }
