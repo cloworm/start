@@ -18,7 +18,6 @@ app.get('/', function (req, res, next) {
 
   Promise.all(promiseArr)
   .then(function(thing) {
-    console.log(thing[1]);
     outerScopeContainer.hotel = thing[0];
     outerScopeContainer.activity = thing[1];
     outerScopeContainer.restaurant = thing[2];
@@ -26,9 +25,9 @@ app.get('/', function (req, res, next) {
   })
   .then(function() {
     res.render('index', {
-      hotel: outerScopeContainer.hotel,
-      activity: outerScopeContainer.activity,
-      restaurant: outerScopeContainer.restaurant,
+      hotels: outerScopeContainer.hotel,
+      activities: outerScopeContainer.activity,
+      restaurants: outerScopeContainer.restaurant,
       place: outerScopeContainer.place
     })
   })

@@ -18,15 +18,15 @@
     <div class="col s12 m6">
       <div class="card-panel  teal lighten-3 clearfix" id="form">
         <span>
-          <form>
+          <form id="options-panel">
             <div class="row">
               <div class="form-group">
                 <div class="input-field col s10">
-                  <select>
+                  <select id="hotel-options">
                     <option value="" disabled selected>Choose your hotel</option>
-                    {% for hotels in hotel %}
+<!--                     {% for hotels in hotel %}
                         <option value='{{ hotels.id }}'>{{ hotels.name }}</option>
-                    {% endfor %}
+                    {% endfor %} -->
                   </select>
                   <label class="white-text">Hotel</label>
                 </div>
@@ -39,11 +39,11 @@
             <div class="row">
               <div class="form-group">
                 <div class="input-field col s10">
-                  <select>
+                  <select id="restaurant-options">
                     <option value="" disabled selected>Choose your restaurants</option>
-                    {% for restaurants in restaurant %}
+<!--                     {% for restaurants in restaurant %}
                         <option value='{{ restaurants.id }}'>{{ restaurants.name }}</option>
-                    {% endfor %}
+                    {% endfor %} -->
                   </select>
                   <label class="white-text">Restaurant</label>
                 </div>
@@ -56,11 +56,11 @@
             <div class="row">
               <div class="form-group">
                 <div class="input-field col s10">
-                  <select>
+                  <select id="activity-options">
                     <option value="" disabled selected>Choose your activities</option>
-                    {% for activitys in activity %}
+<!--                     {% for activitys in activity %}
                         <option value='{{ activitys.id }}'>{{ activitys.name }}</option>
-                    {% endfor %}
+                    {% endfor %} -->
                   </select>
                   <label class="white-text">Activity</label>
                 </div>
@@ -87,9 +87,9 @@
         <div class="row">
           <div class="col s12" id="itinerary-items">
             <p class="day-category white-text"> My Hotel</p>
-            <ul>
+<!--             <ul>
               <li><a class="btn-floating teal"><i class="material-icons">close</i></a> Club Quarters</li>
-            </ul>
+            </ul> -->
             <p class="day-category white-text">My Restaurants</p>
 
             <p class="day-category white-text">My Activities</p>
@@ -97,4 +97,13 @@
       </span>
     </div>
   </div>
+
+  <!-- create global variables for everything in our db -->
+  <script>
+    {% autoescape false %}
+    var hotels = {{ hotels | json }};
+    var restaurants = {{ restaurants | json }};
+    var activities = {{ activities | json }};
+    {% endautoescape %}
+  </script>
   {% endblock %}
