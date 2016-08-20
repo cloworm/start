@@ -15,22 +15,42 @@ var attractionsModule = (function() {
     $selectedActivity = $(this).val();
   })
 
-  // Add attraction to itinerary section when add button is clicked
+  // Checks what type is being added and adds attractions to itinerary
   $('.add-btn').on('click', function() {
     var $addedAttraction = $(this).data('id');
 
     switch ($addedAttraction) {
       case 'hotel':
-        $('#hotel-itinerary').html(`<li><a class="btn-floating teal"><i class="material-icons">close</i></a> ${$selectedHotel}</li>`);
+        addHotel($selectedHotel);
         break;
       case 'restaurant':
-        $('#restaurant-itinerary').append(`<li><a class="btn-floating teal"><i class="material-icons">close</i></a> ${$selectedRestaurant}</li>`);
+        addRestaurant($selectedRestaurant);
         break;
       case 'activity':
-        $('#activity-itinerary').append(`<li><a class="btn-floating teal"><i class="material-icons">close</i></a> ${$selectedActivity}</li>`);
+        addActivity($selectedActivity);
         break;
       default:
         break;
     }
+  })
+
+  // Add a hotel to the itinerary
+  function addHotel(hotel) {
+    $('#hotel-itinerary').html(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${hotel}</li>`);
+  }
+
+  // Add a restaurant to the itinerary
+  function addRestaurant(restaurant) {
+    $('#restaurant-itinerary').append(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${restaurant}</li>`);
+  }
+
+  // Add an activity to the itinerary
+  function addActivity(activity) {
+    $('#activity-itinerary').append(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${activity}</li>`);
+  }
+
+  // Remove attractions from itinerary
+  $('#itinerary-items').on('click', '.remove', function() {
+    $(this).closest('li').remove();
   })
 })();
