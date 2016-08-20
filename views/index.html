@@ -31,7 +31,7 @@
                   <label class="white-text">Hotel</label>
                 </div>
                 <div class="col s2">
-                  <a class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
+                  <a data-id="hotel" class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
                   <label class="white-text">Restaurant</label>
                 </div>
                 <div class="col s2">
-                  <a class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
+                  <a data-id="restaurant" class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
                   <label class="white-text">Activity</label>
                 </div>
                 <div class="col s2">
-                  <a class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
+                  <a data-id="activity" class="btn-floating teal add-btn"><i class="material-icons">add</i></a>
                 </div>
               </div>
             </div>
@@ -87,12 +87,15 @@
         <div class="row">
           <div class="col s12" id="itinerary-items">
             <p class="day-category white-text"> My Hotel</p>
-<!--             <ul>
-              <li><a class="btn-floating teal"><i class="material-icons">close</i></a> Club Quarters</li>
-            </ul> -->
+            <ul id="hotel-itinerary">
+              <!-- <li><a class="btn-floating teal"><i class="material-icons">close</i></a> Club Quarters</li> -->
+            </ul>
             <p class="day-category white-text">My Restaurants</p>
-
+            <ul id="restaurant-itinerary">
+            </ul>
             <p class="day-category white-text">My Activities</p>
+            <ul id="activity-itinerary">
+            </ul>
           </div>
       </span>
     </div>

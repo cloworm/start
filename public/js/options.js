@@ -8,7 +8,7 @@ var optionsModule = (function() {
 
   function createOptions(attractionsArr, attractionDropDown) {
     attractionsArr.forEach(function(attraction) {
-      attractionDropDown.append(`<option value='${attraction.id}'>${attraction.name}</option>`);
+      attractionDropDown.append(`<option value='${attraction.name}'>${attraction.name}</option>`);
     })
   }
 
