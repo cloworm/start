@@ -15,12 +15,6 @@
 .brand-logo {
   left: 3%; }
 
-#days {
-  padding: 0; }
-
-#days div {
-  padding: 0; }
-
 .submit-btn {
   float: right; }
 
@@ -45,14 +39,26 @@ ul li {
 #form {
   height: 325px; }
 
-.tab-container {
-  position: relative;
-  padding-top: 37px; }
-
-.tab-wrapper {
-  overflow-y: auto;
-  height: 275px; }
-
 .add-btn {
   margin-top: 20px;
+}
+
+.day-buttons {
+  text-align: center;
+}
+
+#days {
+  background-color: #fff;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+#itinerary {
+  padding: 0;
+  height: 275px;
+  overflow: auto;
+}
+
+#itinerary-items {
+  padding: 0;
 }
