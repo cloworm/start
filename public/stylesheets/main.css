@@ -62,3 +62,7 @@ ul li {
 #itinerary-items {
   padding: 0;
 }
+
+.current-day {
+  background-color: #000 !important;
+}
