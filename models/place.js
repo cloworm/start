@@ -3,15 +3,15 @@ var db = require('./_db');
 
 var Place = db.define('place', {
   address: {
-    type: Sequelize.TEXT
+    type: Sequelize.STRING
   },
 
   city: {
-    type: Sequelize.TEXT
+    type: Sequelize.STRING
   },
 
   state: {
-    type: Sequelize.TEXT
+    type: Sequelize.STRING
   },
 
   phone: {
@@ -19,7 +19,7 @@ var Place = db.define('place', {
   },
 
   location: {
-    type: Sequelize.ARRAY(Sequelize.FLOAT)
+    type: Sequelize.ARRAY(Sequelize.DOUBLE)
   }
 
 });
