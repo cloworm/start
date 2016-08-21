@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var volleyball = require('volleyball');
 var swig = require('swig');
 var router = require('./routes');
+var db = require('./models');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
@@ -28,5 +29,12 @@ app.use(function(err, req, res, next){
 
 app.listen(port, function() {
 	console.log("Server is listening intently at port " + port + "...");
+  db.sync()
+  .then(function () {
+    console.log('Database is synced');
+  })
+  .catch(function (err) {
+    console.log('Trouble syncing database', err);
+  })
 });
 

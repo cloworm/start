@@ -46,18 +46,27 @@ var mapModule = (function() {
   }
 
   function addMarker(type, location) {
+    var myLatlng = new google.maps.LatLng(location[0],location[1]);
     var marker = new google.maps.Marker({
-      position: location,
+      position: myLatlng,
       map: map,
       icon: icons[type],
       animation: google.maps.Animation.DROP
     })
+    markers.push(marker);
     marker.setMap(map);
+  }
+
+  function clearMarkers() {
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    })
   }
 
   var exports = {
     initializeGmaps: initializeGmaps,
-    addMarker: addMarker
+    addMarker: addMarker,
+    clearMarkers: clearMarkers
   }
 
   return exports;

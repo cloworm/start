@@ -14,11 +14,6 @@ var itineraryModule = (function() {
     renderHotel(hotel);
   }
 
-  function renderHotel(hotel) {
-    $('#hotel-itinerary').html(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${hotel.name}</li>`);
-    // addAttractionMarker('hotel', hotel);
-    console.log(hotel);
-  }
 
   // Add a restaurant to the itinerary
   function addRestaurant(restaurant) {
@@ -30,10 +25,6 @@ var itineraryModule = (function() {
     }
   }
 
-  function renderRestaurant(restaurant) {
-    $('#restaurant-itinerary').append(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${restaurant.name}</li>`);
-  }
-
   // Add an activity to the itinerary
   function addActivity(activity) {
     if (currentDayObject().activities.includes(activity)) {
@@ -43,8 +34,22 @@ var itineraryModule = (function() {
     renderActivity(activity);
   }
 
+  // Add hotel to DOM itinerary and map
+  function renderHotel(hotel) {
+    $('#hotel-itinerary').html(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${hotel.name}</li>`);
+    addAttractionMarker('hotel', hotel);
+  }
+
+  // Add restaurant to DOM itinerary and map
+  function renderRestaurant(restaurant) {
+    $('#restaurant-itinerary').append(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${restaurant.name}</li>`);
+    addAttractionMarker('restaurant', restaurant);
+  }
+
+  // Add activity to DOM itinerary and map
   function renderActivity(activity) {
     $('#activity-itinerary').append(`<li><a class="btn-floating teal remove"><i class="material-icons">close</i></a> ${activity.name}</li>`);
+    addAttractionMarker('activity', activity);
   }
 
   // Clears every item from itinerary
@@ -52,6 +57,7 @@ var itineraryModule = (function() {
     $('#hotel-itinerary').html('');
     $('#restaurant-itinerary').html('');
     $('#activity-itinerary').html('');
+    mapModule.clearMarkers();
   }
 
   function renderItinerary(dayObject) {

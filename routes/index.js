@@ -10,25 +10,28 @@ var Promise = require('bluebird');
 app.get('/', function (req, res, next) {
   var outerScopeContainer = {};
 
-  var hotel = Hotel.findAll();
-  var activity = Activity.findAll();
-  var restaurant = Restaurant.findAll();
-  var place = Place.findAll();
-  var promiseArr = [hotel, activity, restaurant, place];
+  var hotel = Hotel.findAll({
+    include: [Place]
+  });
+  var activity = Activity.findAll({
+    include: [Place]
+  });
+  var restaurant = Restaurant.findAll({
+    include: [Place]
+  });
+  var promiseArr = [hotel, activity, restaurant];
 
   Promise.all(promiseArr)
   .then(function(thing) {
     outerScopeContainer.hotel = thing[0];
     outerScopeContainer.activity = thing[1];
     outerScopeContainer.restaurant = thing[2];
-    outerScopeContainer.place = thing[3];
   })
   .then(function() {
     res.render('index', {
       hotels: outerScopeContainer.hotel,
       activities: outerScopeContainer.activity,
       restaurants: outerScopeContainer.restaurant,
-      place: outerScopeContainer.place
     })
   })
   .catch(next);
