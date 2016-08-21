@@ -43,8 +43,13 @@ ul li {
   margin-top: 20px;
 }
 
-.day-buttons {
+.day-button {
   text-align: center;
+  margin-right: 5px;
+}
+
+#day-buttons {
+  display: inline-block;
 }
 
 #days {
