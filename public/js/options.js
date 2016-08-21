@@ -7,9 +7,7 @@ var optionsModule = (function() {
   var $activityOption = $options.find($('#activity-options'));
 
   function createOptions(attractionsArr, attractionDropDown) {
-    console.log('attractions', attractionsArr);
     attractionsArr.forEach(function(attraction) {
-      console.log('attraction', attraction);
       attractionDropDown.append(`<option value='${attraction.name}'>${attraction.name}</option>`);
     })
     $('select').material_select();
