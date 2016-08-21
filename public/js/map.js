@@ -1,7 +1,7 @@
 var mapModule = (function() {
   var map;
   var markers = [];
-  // var bounds = new google.maps.LatLngBounds();
+  var bounds;
 
   function initializeGmaps() {
       // initialize new google maps LatLng object
@@ -32,11 +32,14 @@ var mapModule = (function() {
               }
             ],
           mapTypeId: google.maps.MapTypeId.ROADMAP
+
       };
       // get the maps div's HTML obj
       var map_canvas_obj = document.getElementById("map");
       // initialize a new Google Map with the options
       map = new google.maps.Map(map_canvas_obj, mapOptions);
+
+      bounds = new google.maps.LatLngBounds();
   }
 
   var icons = {
@@ -44,6 +47,7 @@ var mapModule = (function() {
     restaurant: '/images/restaurant.png',
     activity: '/images/star-3.png'
   }
+
 
   function addMarker(type, location) {
     var myLatlng = new google.maps.LatLng(location[0],location[1]);
@@ -55,12 +59,15 @@ var mapModule = (function() {
     })
     markers.push(marker);
     marker.setMap(map);
+    bounds.extend(myLatlng);
+    map.fitBounds(bounds);
   }
 
   function clearMarkers() {
     markers.forEach(function(marker) {
       marker.setMap(null);
     })
+    bounds = new google.maps.LatLngBounds();
   }
 
   var exports = {
