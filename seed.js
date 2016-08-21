@@ -1,3 +1,5 @@
+// node seed.js
+
 var Promise = require('bluebird');
 var db = require('./models/_db.js');
 var Place = require('./models/place');

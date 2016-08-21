@@ -12,30 +12,30 @@ var dayModule = (function() {
 
   function addNewDay(currentNumDays) {
     days.push(new Day());
-    renderDay(currentNumDays + 1);
+    renderDayButton(currentNumDays + 1);
   }
 
-  function setCurrentDay(day) {
+  function setCurrentDay(dayEl) {
     $currentDay.removeClass('current-day');
-    day.addClass('current-day');
+    dayEl.addClass('current-day');
 
     // Change title of days itinerary
     var $currentTitle = $('#day-title')
-    $currentTitle[0].innerText = $currentTitle[0].innerText.replace(/\d+/, day[0].text);
+    $currentTitle[0].innerText = $currentTitle[0].innerText.replace(/\d+/, dayEl[0].text);
 
     // redefine current day
     $currentDay = $('.current-day');
   }
 
-  function deleteDay(day) {
-    day.remove();
+  function deleteDay(dayEl) {
+    dayEl.remove();
 
     // remove from days array
-    days.splice(day.text - 1, 1);
+    days.splice(dayEl[0].text - 1, 1);
   }
 
   // Render all day buttons
-  function renderDay(dayNumber) {
+  function renderDayButton(dayNumber) {
     $('#day-buttons').append(`<a class="btn-floating white day-button teal-text">${dayNumber}</a>`)
   }
 
@@ -69,7 +69,7 @@ var dayModule = (function() {
       // renumber all days
       $('#day-buttons').html('')
       days.forEach(function(day, index) {
-        renderDay(index + 1);
+        renderDayButton(index + 1);
       });
 
       // set class to stored current day
