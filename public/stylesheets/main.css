@@ -71,3 +71,22 @@ ul li {
 .current-day {
   background-color: #000 !important;
 }
+
+.google-maps-info p {
+  font-size: 1.1em;
+  line-height: 0.9em;
+  margin: 5px;
+}
+
+.google-maps-info .google-maps-title {
+  font-size: 1.3em;
+}
+
+.google-maps-stars {
+  vertical-align: middle;
+  line-height: 24px;
+}
+
+.google-maps-amenities {
+  text-decoration: underline;
+}

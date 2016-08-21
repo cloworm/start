@@ -77,7 +77,7 @@ var itineraryModule = (function() {
   }
 
   function addAttractionMarker(type, attractionObj) {
-    mapModule.addMarker(type, attractionObj.place.location);
+    mapModule.addMarker(type, attractionObj.place.location, attractionObj);
   }
 
   // Update itinerary UI when a new day is selected
