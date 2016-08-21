@@ -5,7 +5,8 @@ var Activity = require('../models/activity');
 var Restaurant = require('../models/restaurant');
 var Place = require('../models/place');
 var Promise = require('bluebird');
-
+var days = require('./days');
+var attractions = require('./attractions');
 
 app.get('/', function (req, res, next) {
   var outerScopeContainer = {};
@@ -36,5 +37,8 @@ app.get('/', function (req, res, next) {
   })
   .catch(next);
 })
+
+app.use('/days', days);
+app.use('/attractions', attractions);
 
 module.exports = app;
