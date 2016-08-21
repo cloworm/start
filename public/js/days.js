@@ -34,9 +34,18 @@ var dayModule = (function() {
     days.splice(day.text - 1, 1);
   }
 
+  // Render all day buttons
   function renderDay(dayNumber) {
     $('#day-buttons').append(`<a class="btn-floating white day-button teal-text">${dayNumber}</a>`)
   }
+
+  //
+  // CLICK LISTENERS
+  //
+  // Remove attractions from itinerary
+  $('#itinerary-items').on('click', '.remove', function() {
+    $(this).closest('li').remove();
+  })
 
   // Clicking new day button
   $('.add-day').on('click', function() {
@@ -70,5 +79,11 @@ var dayModule = (function() {
       $currentDay = $prevDay;
     }
   })
+
+  var exports = {
+    days: days
+  }
+
+  return exports;
 
 })();
